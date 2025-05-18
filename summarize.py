@@ -4,7 +4,7 @@ import rumps
 import sys
 
 from app.ia import get_chat_client
-from app.settings import get_api_key, save_api_key
+from app.settings import get_api_key, save_api_key, VERSION
 from google.genai import types
 
 # Puxa a chave que já esteja salva
@@ -24,7 +24,7 @@ class SummarizerApp(rumps.App):
                 "Resumir Clipboard",
                 "Configurar API Key",
                 None,
-                "Sair"
+                "About",
             ]
         )
         # onde guardamos o resultado pendente
@@ -102,11 +102,14 @@ class SummarizerApp(rumps.App):
             rumps.alert(f"Resumo de: {original[:20]}...", resumo)
             print("[DEBUG] Alert exibido", file=sys.stderr)
             self.pending_summary = None
+            
+    @rumps.clicked("About")
+    def _about(self, _):
+        print("[DEBUG] Clicou em About", file=sys.stderr)
+        rumps.alert("About Summarizer", f"Versão: {VERSION}")
+        print("[DEBUG] Janela About exibida", file=sys.stderr)
 
-    @rumps.clicked("Sair")
-    def quit_app(self, _):
-        print("[DEBUG] Saindo da aplicação", file=sys.stderr)
-        rumps.quit()
+
 
 
 if __name__ == "__main__":
