@@ -1,0 +1,21 @@
+[project]
+name = "summarizer"
+version = "0.1.0"
+description = "App que resume textos copiados usando o Gemini"
+authors = [
+  { name = "Rafael Sousa", email = "rafael_sousa87@hotmail.com" }
+]
+license = "MIT"
+license-files = ["LICENSE"]
+readme = "README.md"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "pydantic",
+    "python-dotenv",
+    "langchain-google-genai",
+    "pyperclip"
+]
+
+[tool.poetry.scripts]
+summarizer = "app.main:main"

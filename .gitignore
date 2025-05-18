@@ -1,0 +1,19 @@
+# Ambiente virtual
+env/
+*.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# IDEs
+.vscode/
+.idea/
+
+# Mac
+.DS_Store
