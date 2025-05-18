@@ -31,7 +31,7 @@ jobs:
             --windowed \
             --icon resources/icon.png \
             --add-data "resources/icon.png:resources" \
-            tray_gemini.py
+            summarize.py
 
       - name: Create DMG installer
         run: |
