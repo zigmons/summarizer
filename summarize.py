@@ -7,7 +7,6 @@ from app.ia import get_chat_client
 from app.settings import get_api_key, save_api_key, VERSION
 from google.genai import types
 
-# Puxa a chave que já esteja salva
 API_KEY = get_api_key()
 print(f"[DEBUG] API_KEY carregada: {API_KEY}", file=sys.stderr)
 client = get_chat_client(API_KEY) if API_KEY else None
@@ -27,7 +26,6 @@ class SummarizerApp(rumps.App):
                 "About",
             ]
         )
-        # onde guardamos o resultado pendente
         self.pending_summary = None
         print("[DEBUG] App iniciado", file=sys.stderr)
 
@@ -98,7 +96,6 @@ class SummarizerApp(rumps.App):
         if self.pending_summary:
             original, resumo = self.pending_summary
             print("[DEBUG] Timer detectou pending_summary!", file=sys.stderr)
-            # exibe a janela de resumo no main thread
             rumps.alert(f"Resumo de: {original[:20]}...", resumo)
             print("[DEBUG] Alert exibido", file=sys.stderr)
             self.pending_summary = None
