@@ -4,7 +4,7 @@ import os
 
 # Onde vamos guardar a chave no disco
 _CONFIG_PATH = os.path.expanduser("~/.summarizer_config.json")
-VERSION = "0.1.2"
+VERSION = "0.1.3"
 
 def get_api_key() -> str | None:
     """Lê do arquivo de config; retorna None se não existir."""
